@@ -3,7 +3,7 @@
 # Finished 15:05
 
 import itertools
-
+ 
 f = open('2021/09.txt', 'r')
 inputString = f.read()
 
