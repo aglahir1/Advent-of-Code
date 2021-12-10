@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>726a8367-bec2-475e-8c7a-12f09181c1bc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>2016\03.py</StartupFile>
+    <StartupFile>2021\10.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -177,6 +177,7 @@
     <Compile Include="2021\05.py" />
     <Compile Include="2021\08.py" />
     <Compile Include="2021\09.py" />
+    <Compile Include="2021\10.py" />
     <Compile Include="Advent_of_Code.py" />
     <Compile Include="proforma.py" />
   </ItemGroup>
@@ -325,6 +326,7 @@
     <Content Include="2021\05.txt" />
     <Content Include="2021\08.txt" />
     <Content Include="2021\09.txt" />
+    <Content Include="2021\10.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
