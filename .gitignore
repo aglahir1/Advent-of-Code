@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Advent of Code/table.csv
+/Advent of Code/.~lock.table.csv#
