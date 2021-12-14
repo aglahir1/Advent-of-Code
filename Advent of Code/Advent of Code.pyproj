@@ -183,6 +183,7 @@
     <Compile Include="2021\13.py" />
     <Compile Include="Advent_of_Code.py" />
     <Compile Include="proforma.py" />
+    <Compile Include="proformaSpreader.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="2015\" />
