@@ -8,7 +8,6 @@ days = [14]
 
 for y in years:
     for d in days:
-        if y == 2016 and d in (2, 1): continue
         f = open(str(y) + '/' + ('', '0')[d < 10] + str(d) + '.py', 'w')
         open(str(y) + '/' + ('', '0')[d < 10] + str(d) + '.txt', 'x')
 
