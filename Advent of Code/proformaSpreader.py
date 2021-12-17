@@ -4,7 +4,7 @@ p = open('proforma.py', 'r')
 proforma = p.read()
 
 years = [2021]
-days = [14]
+days = range(15, 26)
 
 for y in years:
     for d in days:

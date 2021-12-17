@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>726a8367-bec2-475e-8c7a-12f09181c1bc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>2021\14.py</StartupFile>
+    <StartupFile>proformaSpreader.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -182,6 +182,17 @@
     <Compile Include="2021\12.py" />
     <Compile Include="2021\13.py" />
     <Compile Include="2021\14.py" />
+    <Compile Include="2021\15.py" />
+    <Compile Include="2021\16.py" />
+    <Compile Include="2021\17.py" />
+    <Compile Include="2021\18.py" />
+    <Compile Include="2021\19.py" />
+    <Compile Include="2021\20.py" />
+    <Compile Include="2021\21.py" />
+    <Compile Include="2021\22.py" />
+    <Compile Include="2021\23.py" />
+    <Compile Include="2021\24.py" />
+    <Compile Include="2021\25.py" />
     <Compile Include="Advent_of_Code.py" />
     <Compile Include="proforma.py" />
     <Compile Include="proformaSpreader.py" />
@@ -335,6 +346,17 @@
     <Content Include="2021\12.txt" />
     <Content Include="2021\13.txt" />
     <Content Include="2021\14.txt" />
+    <Content Include="2021\15.txt" />
+    <Content Include="2021\16.txt" />
+    <Content Include="2021\17.txt" />
+    <Content Include="2021\18.txt" />
+    <Content Include="2021\19.txt" />
+    <Content Include="2021\20.txt" />
+    <Content Include="2021\21.txt" />
+    <Content Include="2021\22.txt" />
+    <Content Include="2021\23.txt" />
+    <Content Include="2021\24.txt" />
+    <Content Include="2021\25.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
