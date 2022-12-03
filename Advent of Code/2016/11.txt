@@ -1,0 +1,10 @@
+4 . .  .  .   .   .  .  .   .   .  .
+3 . .  .  .   .   .  .  PrG PrM RG RM
+2 . .  .  .   PlM .  SM .   .   .  .
+1 E TG TM PlG .   SG .  .   .   .  .
+
+Thulium, plutonium, strontium, promethium, ruthenium
+
+1.
+ TM 1-2
+ PlGSG 1-2
