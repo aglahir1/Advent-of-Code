@@ -3,8 +3,8 @@
 p = open('proforma.py', 'r')
 proforma = p.read()
 
-years = [2021]
-days = range(15, 26)
+years = [2022]
+days = range(1, 26)
 
 for y in years:
     for d in days:
