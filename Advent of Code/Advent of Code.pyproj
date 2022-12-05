@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>726a8367-bec2-475e-8c7a-12f09181c1bc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>2016\11.py</StartupFile>
+    <StartupFile>2020\04.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -193,6 +193,31 @@
     <Compile Include="2021\23.py" />
     <Compile Include="2021\24.py" />
     <Compile Include="2021\25.py" />
+    <Compile Include="2022\01.py" />
+    <Compile Include="2022\02.py" />
+    <Compile Include="2022\03.py" />
+    <Compile Include="2022\04.py" />
+    <Compile Include="2022\05.py" />
+    <Compile Include="2022\06.py" />
+    <Compile Include="2022\07.py" />
+    <Compile Include="2022\08.py" />
+    <Compile Include="2022\09.py" />
+    <Compile Include="2022\10.py" />
+    <Compile Include="2022\11.py" />
+    <Compile Include="2022\12.py" />
+    <Compile Include="2022\13.py" />
+    <Compile Include="2022\14.py" />
+    <Compile Include="2022\15.py" />
+    <Compile Include="2022\16.py" />
+    <Compile Include="2022\17.py" />
+    <Compile Include="2022\18.py" />
+    <Compile Include="2022\19.py" />
+    <Compile Include="2022\20.py" />
+    <Compile Include="2022\21.py" />
+    <Compile Include="2022\22.py" />
+    <Compile Include="2022\23.py" />
+    <Compile Include="2022\24.py" />
+    <Compile Include="2022\25.py" />
     <Compile Include="Advent_of_Code.py" />
     <Compile Include="proforma.py" />
     <Compile Include="proformaSpreader.py" />
@@ -205,6 +230,7 @@
     <Folder Include="2018\" />
     <Folder Include="2019\" />
     <Folder Include="2020\" />
+    <Folder Include="2022\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="2015\15.txt" />
@@ -357,6 +383,31 @@
     <Content Include="2021\23.txt" />
     <Content Include="2021\24.txt" />
     <Content Include="2021\25.txt" />
+    <Content Include="2022\01.txt" />
+    <Content Include="2022\02.txt" />
+    <Content Include="2022\03.txt" />
+    <Content Include="2022\04.txt" />
+    <Content Include="2022\05.txt" />
+    <Content Include="2022\06.txt" />
+    <Content Include="2022\07.txt" />
+    <Content Include="2022\08.txt" />
+    <Content Include="2022\09.txt" />
+    <Content Include="2022\10.txt" />
+    <Content Include="2022\11.txt" />
+    <Content Include="2022\12.txt" />
+    <Content Include="2022\13.txt" />
+    <Content Include="2022\14.txt" />
+    <Content Include="2022\15.txt" />
+    <Content Include="2022\16.txt" />
+    <Content Include="2022\17.txt" />
+    <Content Include="2022\18.txt" />
+    <Content Include="2022\19.txt" />
+    <Content Include="2022\20.txt" />
+    <Content Include="2022\21.txt" />
+    <Content Include="2022\22.txt" />
+    <Content Include="2022\23.txt" />
+    <Content Include="2022\24.txt" />
+    <Content Include="2022\25.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
