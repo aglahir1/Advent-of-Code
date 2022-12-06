@@ -5,14 +5,22 @@
 f = open('2022/06.txt', 'r')
 inputString = f.read()
 
+#inputString = "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
+#inputString = "bvwbjplbgvbhsrlpgdmjqwftvncz"
+#inputString = "nppdvjthqldpwncqszvftbrmjlhg"
+#inputString = "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"
+#inputString = "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"
+
 def partOne(i):
-    pass
+    for x, c in enumerate(i):
+        if x < 4: continue
+        if len(set(i[x-4:x])) == 4: return x
 
 def partTwo(i):
-    pass
+    for x, c in enumerate(i):
+        if x < 14: continue
+        if len(set(i[x-14:x])) == 14: return x
 
-inputArray = inputString.splitlines()
+print(partOne(inputString))
 
-print(partOne(inputArray))
-
-print(partTwo(inputArray))
+print(partTwo(inputString))
