@@ -34,8 +34,6 @@ inputString = f.read()
 #7214296 k"""
 
 global folders
-global folderIndex
-folderIndex = {}
 folders = []
 
 def backup():
@@ -82,7 +80,26 @@ class File:
 
     def getSize(self):
         return self.size
+    
+inputArray = inputString.splitlines()
 
+position = 0
+
+folders += [Folder('/', None, 0)]
+
+
+for code in inputArray:
+    code = code.split()
+    if code[0] == '$':
+        if code[1] == 'cd':
+            if code[2] == '..':
+                position = backup()
+            else:
+                if enter(code[2]): position = enter(code[2])
+        elif code[1] == 'ls': continue
+    else:
+        if code[0] == 'dir': folders[position].addFolder(code[1])
+        else: folders[position].addFile(code[1], int(code[0]))
     
 
 def partOne():
@@ -108,26 +125,6 @@ def partTwo():
     bigenough.sort
     return bigenough[-1]
 
-
-inputArray = inputString.splitlines()
-
-position = 0
-
-folders += [Folder('/', None, 0)]
-
-
-for code in inputArray:
-    code = code.split()
-    if code[0] == '$':
-        if code[1] == 'cd':
-            if code[2] == '..':
-                position = backup()
-            else:
-                if enter(code[2]): position = enter(code[2])
-        elif code[1] == 'ls': continue
-    else:
-        if code[0] == 'dir': folders[position].addFolder(code[1])
-        else: folders[position].addFile(code[1], int(code[0]))
 
 
 
