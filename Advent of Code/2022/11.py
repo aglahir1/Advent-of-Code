@@ -2,7 +2,7 @@
 # Started
 # Finished
 
-import inspect
+from typing import List
 
 f = open('2022/11.txt', 'r')
 inputString = f.read()
@@ -17,7 +17,7 @@ class Item:
         self.worryLevel = int(self.worryLevel / 3)
 
 class Monkey:
-    items: list[Item]
+    items: List[Item]
     inspectionCount: int
 
     def __init__(self, startingItems, operation, test):
@@ -44,7 +44,9 @@ class Monkey:
         return 'This Monkey has ' + str(len(self.items)) + ' items: ' + ', '.join([str(x.worryLevel) for x in self.items])
 
 
-monkeys: list[Monkey]
+monkeys: List[Monkey]
+
+# START TEST INPUT
 
 def toperation0(old):
     return old * 19
@@ -80,6 +82,8 @@ monkeys = [
     Monkey([79, 60, 97], toperation2, ttest2),
     Monkey([74], toperation3, ttest3)
     ]
+
+# END TEST INPUT
 
 def operation0(old):
     return old * 3
@@ -152,6 +156,6 @@ for _ in range(10000):
     for x in monkeys:
         x.inspectItems()
 
-inspectionCounts: list[int] = [x.inspectionCount for x in monkeys]
+inspectionCounts: List[int] = [x.inspectionCount for x in monkeys]
 inspectionCounts.sort()
 print(inspectionCounts[-2] * inspectionCounts[-1])
