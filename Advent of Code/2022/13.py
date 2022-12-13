@@ -41,30 +41,27 @@ class Packet:
         self.val = eval(packetString)
 
     def __lt__(self, otherPacket: Packet):
-        return checkList(self.val, otherPacket.val)
+        for i in zip(self.val, otherPacket.val):
+            if type(i[0]) == list or type(i[1]) == list:
+                check = Packet(str(makeList(i[0]))) < Packet(str(makeList(i[1])))
+                if check == 'same': continue
+                return check
+            if i[0] == i[1]: continue
+            if i[0] < i[1]: return True
+            return False
+        if len(self.val) == len(otherPacket.val): return 'same'
+        if len(self.val) < len(otherPacket.val): return True
+        return False
 
 
 def makeList(i):
     if type(i) == list: return i
     return [i]
 
-def checkList(l1: List, l2: List):
-    for i in zip(l1, l2):
-        if type(i[0]) == list or type(i[1]) == list:
-            check = checkList(makeList(i[0]), makeList(i[1]))
-            if check == 'same': continue
-            return check
-        if i[0] == i[1]: continue
-        if i[0] < i[1]: return True
-        return False
-    if len(l1) == len(l2): return 'same'
-    if len(l1) < len(l2): return True
-    return False
-
 def partOne(i):
     correctPairs = []
     for x, pair in enumerate(i):
-        if checkList(pair[0], pair[1]) : correctPairs.append(x + 1)
+        if pair[0] < pair[1] : correctPairs.append(x + 1)
     return sum(correctPairs)
 
 def partTwo(i: List[Packet]):
@@ -78,7 +75,7 @@ def partTwo(i: List[Packet]):
 
 inputFirstPart = inputString.split('\n\n')
 
-inputFirstPart = [[eval(j[0]), eval(j[1])] for j in [x.splitlines() for x in inputFirstPart]]
+inputFirstPart = [[Packet(j[0]), Packet(j[1])] for j in [x.splitlines() for x in inputFirstPart]]
 
 print(partOne(inputFirstPart))
 
