@@ -10,24 +10,23 @@ inputString: str = f.read()
 #inputString = """498,4 -> 498,6 -> 496,6
 #503,4 -> 502,4 -> 502,9 -> 494,9"""
 
-rock: set = set()
-sand: set = set()
+objects: dict = dict()
 greatestY: int = 0
 
 def checkBelow(coords: List[int]):
     coordLiteral: str = str(coords[0]) + ',' + str(coords[1] + 1)
-    return not (coordLiteral in rock.union(sand))
+    return not (coordLiteral in objects)
 
 def checkBelowLeft(coords: List[int]):
     coordLiteral: str = str(coords[0] - 1) + ',' + str(coords[1] + 1)
-    return not (coordLiteral in rock.union(sand))
+    return not (coordLiteral in objects)
 
 def checkBelowRight(coords: List[int]):
     coordLiteral: str = str(coords[0] + 1) + ',' + str(coords[1] + 1)
-    return not (coordLiteral in rock.union(sand))
+    return not (coordLiteral in objects)
 
 def checkMove(coords: List[int]):
-    return (checkBelow(coords) or checkBelowLeft(coords) or checkBelowRight(coords)) and (coords[1] < greatestY)
+    return (checkBelow(coords) or checkBelowLeft(coords) or checkBelowRight(coords)) and (coords[1] < greatestY + 1)
 
 def move(coords: List[int]):
     if checkBelow(coords): return [coords[0], coords[1] + 1]
@@ -42,17 +41,17 @@ def draw(node1, node2):
     if y1 == y2:
         if x1 > x2:
             for j in range(x1 - x2 + 1):
-                rock.add(str(j + x2) + ',' + str(y1))
+                objects[str(j + x2) + ',' + str(y1)] = 'Rock'
             return
         for j in range(x2 - x1 + 1):
-            rock.add(str(j + x1) + ',' + str(y1))
+            objects[str(j + x1) + ',' + str(y1)] = 'Rock'
         return
     if y1 > y2:
         for j in range(y1 - y2 + 1):
-            rock.add(str(x1) + ',' + str(j + y2))
+            objects[str(x1) + ',' + str(j + y2)] = 'Rock'
         return
     for j in range(y2 - y1 + 1):
-        rock.add(str(x1) + ',' + str(j + y1))
+        objects[str(x1) + ',' + str(j + y1)] = 'Rock'
     return
 
 inputArray: List[List[List[int]]] = [[list(map(int, j.split(','))) for j in x.split(' -> ')] for x in inputString.splitlines()]
@@ -68,7 +67,7 @@ while True:
     currentSand = sandOrigin[:]
     while checkMove(currentSand):
         currentSand = move(currentSand)
-    if currentSand[1] >= greatestY: break
-    sand.add(str(currentSand[0]) + ',' + str(currentSand[1]))
+    objects[str(currentSand[0]) + ',' + str(currentSand[1])] = 'Sand'
+    if currentSand == [500,0]: break
 
-print(len(sand))
+print(len([x for x in objects if objects[x] == 'Sand']))
