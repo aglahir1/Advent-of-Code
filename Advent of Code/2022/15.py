@@ -4,6 +4,9 @@
 
 from pprint import pprint
 from typing import List
+import time
+
+start = time.time()
 
 f = open('2022/15.txt', 'r')
 inputString: str = f.read()
@@ -31,11 +34,11 @@ def calculateManhattanDistance(originX: int, originY: int, edgePointX: int, edge
     manhattanDistance: int = abs(originX - edgePointX) + abs(originY - edgePointY)
     return manhattanDistance
 
-def drawManhattanSquare(originX: int, originY: int, edgePointX: int, edgePointY: int):
+def drawManhattanSquare(originX: int, originY: int, edgePointX: int, edgePointY: int, line: int):
     manhattanDistance: int = calculateManhattanDistance(originX, originY, edgePointX, edgePointY)
-    if not (originY + manhattanDistance > 2000000 > originY - manhattanDistance): return
+    if not (originY + manhattanDistance > line > originY - manhattanDistance): return
     for y in list(range(-(manhattanDistance), manhattanDistance + 1))[::-1]:
-        if y + originY != 2000000: continue
+        if y + originY != line: continue
         for x in range(-(manhattanDistance - abs(y)), manhattanDistance - abs(y) + 1):
             if (x == 0 and y == 0) or (x == edgePointX - originX and y == edgePointY - originY): continue
             if not y + originY in field: field[y + originY] = set()
@@ -53,25 +56,41 @@ def parseInput(inputArray: List[str]):
     return outputArray
 
 def partOne(i):
-    for sensor in i:
-        drawManhattanSquare(sensor[0], sensor[1], sensor[2], sensor[3])
     line = 10
     line = 2000000
-
+    for sensor in i:
+        drawManhattanSquare(sensor[0], sensor[1], sensor[2], sensor[3], line)
     return len(field[line])
 
 def checkIfInRange(originX: int, originY: int, edgePointX: int, edgePointY: int, distanceToCheck: int):
     distance = calculateManhattanDistance(originX, originY, edgePointX, edgePointY)
     return distance <= distanceToCheck
 
+def findBorderForSensor(originX, originY, radius):
+    border = {}
+    for y in range(-radius - 1, radius + 2):
+        if not (0 < originY + y < 4000000): continue
+        width = [-(radius - abs(y) + 1), radius - abs(y) + 2]
+        border[originY + y] = []
+        for x in [width[0], width[1]]:
+            border[originY + y].append(originX + x)
+    return border
+
 def partTwo(i):
-    sensors: List = []
+    sensors = []
     for sensor in i:
-        sensors.append([[sensor[0], sensor[1]], calculateManhattanDistance(sensor[0], sensor[1], sensor[2], sensor[3])])
-    for y in range(4000001):
-        for x in range(4000001):
-            pass
-    return 'done'
+        sensors.append([sensor[0], sensor[1], calculateManhattanDistance(sensor[0], sensor[1], sensor[2], sensor[3])])
+    for i, sensor in enumerate(sensors):
+        border = findBorderForSensor(sensor[0], sensor[1], sensor[2])
+        print('calculated border for ' + str(i + 1) + '/' + str(len(sensors)))
+        for y in border.keys():
+            for x in border[y]:
+                if not (0 < x < 4000000 and 0 < y < 4000000): continue
+                for s in sensors:
+                    inRange = checkIfInRange(x, y, s[0], s[1], s[2])
+                    if inRange: break
+                if not inRange: return 4000000 * x + y
+        print('checked border for ' + str(i + 1) + '/' + str(len(sensors)))
 
 inputArray = inputString.splitlines()
 inputArray = parseInput(inputArray)
@@ -79,3 +98,6 @@ inputArray = parseInput(inputArray)
 #print(partOne(inputArray))
 
 print(partTwo(inputArray))
+
+end = time.time()
+print(end - start)
