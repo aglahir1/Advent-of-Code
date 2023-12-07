@@ -53,7 +53,6 @@ def partTwo(i):
     xored = []
     for a in range(16):
         xored.append(reduce(lambda x, y: x ^ y, nums[0 + a*16: 16 + a*16]))
-    print(xored)
     return ''.join([x.to_bytes(1, "big").hex() for x in xored])
 
 print(partOne(inputString))
