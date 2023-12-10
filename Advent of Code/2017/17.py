@@ -2,17 +2,29 @@
 # Started
 # Finished
 
-f = open('2017/17.txt', 'r')
-inputString = f.read()
+inputString = 335
 
 def partOne(i):
-    pass
+    spinlock = [0]
+    position = 0
+    for x in range(1, 2018):
+        position += i
+        position %= len(spinlock)
+        spinlock.insert(position + 1, x)
+        position += 1
+    return spinlock[(position + 1) % len(spinlock)]
 
 def partTwo(i):
-    pass
+    spinlock = [0]
+    position = 0
+    for x in range(1, 50000000):
+        position += i
+        position %= x
+        if position == 0:
+            spinlock.insert(1, x)
+        position += 1
+    return spinlock[1]
 
-inputArray = inputString.splitlines()
+print(partOne(inputString))
 
-print(partOne(inputArray))
-
-print(partTwo(inputArray))
+print(partTwo(inputString))
