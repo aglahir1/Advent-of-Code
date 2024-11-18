@@ -2,17 +2,42 @@
 # Started
 # Finished
 
-f = open('2016/18.txt', 'r')
-inputString = f.read()
+from functools import cache
+
+
+inputString = '^^.^..^.....^..^..^^...^^.^....^^^.^.^^....^.^^^...^^^^.^^^^.^..^^^^.^^.^.^.^.^.^^...^^..^^^..^.^^^^'
+# inputString = '.^^.^.^^^^'
+# inputString = '..^^.'
+
+@cache
+def generateNextRow(i: str) -> str:
+    newRow = '.'
+    for x in zip(i[:-2], i[2:]):
+        if x in {('.', '^'), ('^', '.')}:
+            newRow += '^'
+        else:
+            newRow += '.'
+    return newRow + '.'
 
 def partOne(i):
-    pass
+    # prime row
+    i = '.' + i + '.'
+    result = i[1:-1] + '\n'
+    for _ in range(39):
+        i = generateNextRow(i)
+        result += i[1:-1] + '\n'
+    return result.count('.')
 
 def partTwo(i):
-    pass
+    # prime row
+    i = '.' + i + '.'
+    result = i[1:-1] + '\n'
+    for _ in range(399999):
+        i = generateNextRow(i)
+        result += i[1:-1] + '\n'
+    return result.count('.')
 
-inputArray = inputString.splitlines()
 
-print(partOne(inputArray))
+print(partOne(inputString))
 
-print(partTwo(inputArray))
+print(partTwo(inputString))
