@@ -14,7 +14,6 @@ inputString = f.read()
 
 def executeInst(assembunny: dict) -> dict:
     inst = assembunny['instructions'][assembunny['pointer']]
-    inst = inst.split(' ')
     if inst[0] == 'cpy':
         if inst[1].isnumeric():
             assembunny[inst[2]] = int(inst[1])
@@ -44,7 +43,7 @@ def partTwo(i):
         assembunny = executeInst(assembunny)
     return assembunny
 
-inputArray = inputString.splitlines()
+inputArray = [x.split() for x in inputString.splitlines()]
 
 print(partOne(inputArray))
 
