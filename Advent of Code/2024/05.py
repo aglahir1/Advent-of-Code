@@ -52,7 +52,7 @@ def reorder(update: list[str], rules: list[list[str]]) -> list[str]:
                 a = temp[i]
                 temp[i] = temp[j]
                 temp[j] = a
-                i = -1
+                i -= 1
                 break
         i += 1
     return temp
